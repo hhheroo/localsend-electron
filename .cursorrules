@@ -1,0 +1,42 @@
+# LocalSend Electron Project Rules
+
+## Required Reading
+
+Before starting any task, please read the following documents:
+
+1. **ARCHITECTURE.md** - Architecture documentation (required)
+2. **AGENTS.md** - AI Agent guide
+3. **apps/electron-app/AGENTS.md** - Electron app development guide
+
+## Project Overview
+
+This is an Electron-based LocalSend client implementation using Rush monorepo architecture.
+
+## Core Technologies
+
+- Rush 5.166.0 + pnpm (Monorepo)
+- Electron 26 (Desktop framework)
+- React 18 + TypeScript (Frontend)
+- Vite 5 (Build tool)
+- UnoCSS (Styling)
+- Hono (HTTP server)
+- electron-log (Logging)
+
+## Key Ports
+
+- 53317: LocalSend protocol port (TCP/HTTPS + UDP multicast)
+
+## Development Commands
+
+```bash
+rush install    # Install dependencies
+rush build      # Build all projects
+cd apps/electron-app && yarn dev  # Development mode
+```
+
+## Code Guidelines
+
+1. Use TypeScript
+2. Use UnoCSS atomic class names
+3. Main process logging uses electron-log
+4. Renderer process logging uses src/utils/logger.ts

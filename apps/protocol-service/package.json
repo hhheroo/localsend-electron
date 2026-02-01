@@ -1,0 +1,25 @@
+{
+  "name": "@localsend/protocol-service",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "default": "./dist/main.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3",
+    "@types/node": "~20.19.29"
+  },
+  "dependencies": {
+    "@localsend/common": "workspace:*",
+    "@hono/node-server": "~1.19.9",
+    "hono": "~4.11.4",
+    "got": "~14.6.6",
+    "undici": "5"
+  }
+}

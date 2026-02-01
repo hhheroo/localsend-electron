@@ -1,0 +1,63 @@
+---
+description: LocalSend Electron App Development Standards
+globs: apps/electron-app/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# LocalSend Electron App Development Standards
+
+> **Important**: Before starting any task, please read [ARCHITECTURE.md](/ARCHITECTURE.md) in the project root to understand the complete architecture.
+
+## Tech Stack
+
+- **Framework**: React 18 + TypeScript
+- **Build Tool**: Vite + Electron
+- **Styling**: UnoCSS (atomic CSS)
+- **Component Format**: Functional components (.tsx)
+- **Logging**: electron-log
+
+## Styling Guidelines
+
+Use UnoCSS atomic class names, no traditional CSS files:
+
+```tsx
+// ✅ GOOD - Use UnoCSS class names
+<div className="flex items-center gap-4 p-4 bg-sidebar-bg rounded-lg">
+  <span className="text-lg font-semibold text-black">Title</span>
+</div>
+
+// ❌ BAD - Don't use CSS files or inline styles
+<div style={{ display: 'flex' }}>
+<div className={styles.container}>
+```
+
+## Color Theme
+
+| Name | Value | Usage |
+|------|-------|-------|
+| `primary` | `#1b8b7d` | Primary color |
+| `primary-light` | `#2aa396` | Primary light |
+| `sidebar-bg` | `#e8eeed` | Sidebar background |
+| `content-bg` | `#f5f7f6` | Content background |
+
+## Logging Guidelines
+
+- **Main process**: Use `electron-log` with `log.scope('ModuleName')`
+- **Renderer process**: Use `src/utils/logger.ts` exported `logger`
+
+```typescript
+// Main process
+import log from 'electron-log'
+const logger = log.scope('ModuleName')
+logger.info('Info')
+
+// Renderer process
+import { logger } from '../utils/logger'
+logger.log('Info')
+```
+
+## Component Guidelines
+
+- Use functional components and React Hooks
+- Component files use `.tsx` extension
+- One component per file, placed in `src/components/` directory

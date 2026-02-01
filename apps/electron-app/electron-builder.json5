@@ -1,0 +1,25 @@
+// @see - https://www.electron.build/configuration/configuration
+{
+  "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
+  "appId": "com.way.localsend",
+  "asar": false,
+  "productName": "LocalSend",
+  "directories": {
+    "output": "release/${version}"
+  },
+  "files": [
+    "dist",
+    "dist-electron"
+  ],
+  "mac": {
+    "target": [
+      {
+        "target": "dmg",
+        "arch": ["arm64", "x64"]
+      }
+    ],
+    "icon": "public/AppIcon.icns",
+    "minimumSystemVersion": "10.14",
+    "artifactName": "${productName}-Mac-${version}-${arch}.${ext}"
+  }
+}

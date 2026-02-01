@@ -1,0 +1,29 @@
+{
+  "name": "@localsend/common",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "default": "./dist/utils/index.js"
+    },
+    "./type": {
+      "types": "./dist/type/index.d.ts",
+      "default": "./dist/type/index.js"
+    },  
+    "./globals": {
+      "types": "./dist/globals/index.d.ts",
+      "default": "./dist/globals/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3",
+    "@types/node-forge": "~1.3.14"
+  },
+  "dependencies": {
+    "node-forge": "~1.3.3"
+  }
+}
